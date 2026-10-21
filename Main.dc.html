@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nuclear Sim — Homepage</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#080A08}
+a{color:#F4D500}a:hover{color:#FFE84D}
+.ns-btn{transition:transform .2s ease, filter .2s ease, border-color .2s ease}
+.ns-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.ns-btn:focus-visible,.ns-link:focus-visible{outline:2px solid #F4D500;outline-offset:3px}
+.ns-card{transition:border-color .25s ease, box-shadow .25s ease}
+.ns-card:hover{border-color:rgba(244,213,0,.55);box-shadow:0 0 0 1px rgba(244,213,0,.15),0 18px 50px -20px rgba(244,213,0,.25)}
+.ns-link{color:#B8BBAF;text-decoration:none;transition:color .2s ease}
+.ns-link:hover{color:#F4F4EE}
+@keyframes nsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes nsPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+.ns-float{animation:nsFloat 9s ease-in-out infinite}
+.ns-halo{animation:nsPulse 6.5s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.ns-float,.ns-halo{animation:none}.ns-btn:hover{transform:none}}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #080A08; color: #F4F4EE; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6; overflow: hidden">
+
+<!-- NAVIGATION -->
+<header style="border-bottom: 1px solid rgba(184,187,175,.14); background: rgba(8,10,8,.85)">
+<nav aria-label="Main" style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; min-height: 48px">
+<a href="#top" class="ns-link" style="display: flex; align-items: center; gap: 12px; color: #F4F4EE">
+<span style="position: relative; width: 40px; height: 40px; display: inline-flex">
+<span class="ns-halo" aria-hidden="true" style="position: absolute; inset: -14px; border-radius: 50%; background: radial-gradient(circle, rgba(244,213,0,.45) 0%, rgba(244,213,0,.12) 40%, rgba(244,213,0,0) 70%)"></span>
+<svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" style="position: relative">
+<circle cx="20" cy="20" r="18.5" fill="none" stroke="#F4D500" stroke-width="1" opacity=".5"></circle>
+<path d="M16.5 13.94 L12 6.14 A16 16 0 0 1 28 6.14 L23.5 13.94 A7 7 0 0 0 16.5 13.94 Z" fill="#F4D500"></path>
+<path d="M27 20 L36 20 A16 16 0 0 1 28 33.86 L23.5 26.06 A7 7 0 0 0 27 20 Z" fill="#F4D500"></path>
+<path d="M16.5 26.06 L12 33.86 A16 16 0 0 1 4 20 L13 20 A7 7 0 0 0 16.5 26.06 Z" fill="#F4D500"></path>
+<circle cx="20" cy="20" r="3.6" fill="#F4D500"></circle>
+</svg>
+</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: .08em">NUCLEAR<span style="color: #F4D500"> / </span>SIM</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px">
+<a href="#top" class="ns-link" style="color: #F4F4EE">Home</a>
+<a href="#simulator" class="ns-link">Simulator</a>
+<a href="#features" class="ns-link">Features</a>
+<a href="#about" class="ns-link">About</a>
+<a href="#contact" class="ns-link">Contact</a>
+<a href="#simulator" class="ns-btn" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 8px; background: {{accent}}; color: #080A08; font-weight: 600; text-decoration: none">Launch Simulator</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 28px; position: relative; z-index: 1">
+<div style="display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: .18em; color: #F4D500">
+<span aria-hidden="true" style="width: 28px; height: 1px; background: #F4D500"></span>
+<span>NUCLEAR MEDICINE · VIRTUAL LABORATORY</span>
+</div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(42px, 5.6vw, 76px); line-height: 1.02; letter-spacing: -.025em">Visualize the Invisible.<br><span style="color: {{accent}}">Master Nuclear Imaging.</span></h1>
+<p style="margin: 0; max-width: 520px; font-size: 18px; color: #B8BBAF">Explore the principles of nuclear medicine through an interactive virtual imaging environment. Experiment with SPECT acquisition parameters, understand image formation, and see how reconstruction settings shape image quality.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<a href="#individual" class="ns-btn" style="display: inline-flex; flex-direction: column; justify-content: center; min-height: 60px; padding: 10px 26px; border-radius: 10px; background: {{accent}}; color: #080A08; text-decoration: none">
+<span style="font-weight: 600; font-size: 16px">Explore as an Individual →</span>
+<span style="font-size: 13px; opacity: .75">Personal learning</span>
+</a>
+<a href="#institution" class="ns-btn" style="display: inline-flex; flex-direction: column; justify-content: center; min-height: 60px; padding: 10px 26px; border-radius: 10px; border: 1px solid rgba(244,213,0,.55); color: #F4F4EE; text-decoration: none; background: rgba(20,23,17,.6)">
+<span style="font-weight: 600; font-size: 16px">Explore for Institutions →</span>
+<span style="font-size: 13px; color: #B8BBAF">Education &amp; research</span>
+</a>
+</div>
+<p style="margin: 0; font-size: 14px; color: #8E9286">A virtual laboratory for nuclear medicine education, scientific exploration, and imaging physics.</p>
+</div>
+
+<div style="flex: 1 1 520px; min-width: 0; position: relative; display: flex; justify-content: center; padding-top: 24px">
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 46%; width: 115%; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(244,213,0,.42) 0%, rgba(196,150,0,.16) 30%, rgba(120,90,0,.05) 50%, rgba(8,10,8,0) 68%); filter: blur(18px); opacity: {{glow}}"></div>
+<figure style="margin: 0; width: 100%; max-width: 680px; position: relative">
+<div class="ns-float" style="position: relative; width: 100%; aspect-ratio: 1060 / 629">
+<svg viewBox="0 0 1060 629" aria-hidden="true" style="position: absolute; inset: -8% -4% auto; width: 108%; height: auto; overflow: visible">
+<g fill="none" stroke="#F4D500">
+<ellipse cx="300" cy="290" rx="420" ry="420" stroke-opacity=".08" stroke-dasharray="2 10"></ellipse>
+<ellipse cx="300" cy="290" rx="330" ry="330" stroke-opacity=".14"></ellipse>
+<path d="M300 -130 v18 M300 692 v18 M-120 290 h18 M702 290 h18" stroke-opacity=".5" stroke-width="1.5"></path>
+</g>
+</svg>
+<div aria-hidden="true" class="ns-halo" style="position: absolute; left: 27%; top: 46%; width: 30%; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(255,232,77,.95) 0%, rgba(244,213,0,.55) 25%, rgba(244,213,0,.12) 55%, rgba(244,213,0,0) 72%); opacity: {{glow}}"></div>
+<img src="./assets/f7978676dce244497f3639ecc3b7cadb.webp" alt="Dual-head SPECT/CT scanner with patient bed, three-quarter view" style="position: relative; display: block; width: 100%; height: auto; filter: brightness(.9) contrast(1.06) drop-shadow(0 0 1px rgba(244,213,0,.55)) drop-shadow(0 0 28px rgba(244,213,0,.16))">
+<img src="./assets/f7978676dce244497f3639ecc3b7cadb.webp" alt="" aria-hidden="true" style="position: absolute; left: 0; top: 100%; width: 100%; height: auto; transform: scaleY(-1); transform-origin: top; opacity: .14; filter: blur(2px) brightness(.7); -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 35%); mask-image: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 35%)">
+<div aria-hidden="true" style="position: absolute; left: 6%; right: 2%; bottom: -3%; height: 10%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.85) 0%, rgba(0,0,0,0) 70%)"></div>
+<div style="position: absolute; left: 50%; top: -6%; display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(12,14,11,.72); border: 1px solid rgba(244,213,0,.35); backdrop-filter: blur(8px); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .08em; color: #F4F4EE; white-space: nowrap">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #F4D500; box-shadow: 0 0 10px #F4D500"></span>DETECTOR HEADS · 2
+</div>
+<div style="position: absolute; left: -2%; top: 78%; display: flex; flex-direction: column; gap: 2px; padding: 9px 13px; border-radius: 10px; background: rgba(12,14,11,.72); border: 1px solid rgba(184,187,175,.22); backdrop-filter: blur(8px); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #B8BBAF; white-space: nowrap">
+<span style="color: #F4D500; letter-spacing: .1em">ORBIT</span><span style="color: #F4F4EE">360° · 120 proj</span>
+</div>
+<div style="position: absolute; right: 0; top: 30%; display: flex; flex-direction: column; gap: 2px; padding: 9px 13px; border-radius: 10px; background: rgba(12,14,11,.72); border: 1px solid rgba(184,187,175,.22); backdrop-filter: blur(8px); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #B8BBAF; white-space: nowrap">
+<span style="color: #F4D500; letter-spacing: .1em">ISOTOPE</span><span style="color: #F4F4EE">Tc-99m · 140 keV</span>
+</div>
+</div>
+<figcaption style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 56px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; color: #B8BBAF">
+<span>SPECT SYSTEM / 01</span>
+<span>Virtual imaging environment</span>
+</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="features" style="border-top: 1px solid rgba(184,187,175,.12); background: #0B0D0A">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: .18em; color: #F4D500">01 · SIMULATOR CAPABILITIES</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; letter-spacing: -.02em">A scientific workstation, in your browser.</h2>
+</div>
+<p style="margin: 0; max-width: 380px; color: #B8BBAF; font-size: 15px">Modules roll out in stages. Each card shows its current status.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<article class="ns-card" style="background: #141711; border: 1px solid rgba(184,187,175,.14); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F4D500" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">SPECT acquisition</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Rotate detector heads around a phantom and watch projections build up angle by angle.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B8BBAF">[STATUS]</span>
+</article>
+<article class="ns-card" style="background: #141711; border: 1px solid rgba(184,187,175,.14); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F4D500" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Parameter experiments</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Change projections, counts, matrix size and collimator, then compare what changes.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B8BBAF">[STATUS]</span>
+</article>
+<article class="ns-card" style="background: #141711; border: 1px solid rgba(184,187,175,.14); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F4D500" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"></rect><rect x="13" y="3" width="8" height="8" rx="1"></rect><rect x="3" y="13" width="8" height="8" rx="1"></rect><path d="M13 17h8M17 13v8"></path></svg>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Reconstruction &amp; viewing</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Turn sinograms into slices and inspect them side by side with the original projections.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B8BBAF">[STATUS]</span>
+</article>
+<article class="ns-card" style="background: #141711; border: 1px solid rgba(184,187,175,.14); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F4D500" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Exercises &amp; analysis</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Guided tasks with image-quality metrics so learners can measure their own results.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B8BBAF">[STATUS]</span>
+</article>
+</div>
+</div>
+</section>
+
+<!-- ACCESS -->
+<section id="simulator" style="max-width: 1240px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: .18em; color: #F4D500">02 · CHOOSE YOUR ACCESS</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; letter-spacing: -.02em">Two ways into the lab.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+<article id="individual" class="ns-card" style="position: relative; overflow: hidden; background: #141711; border: 1px solid rgba(184,187,175,.16); border-radius: 18px; padding: 40px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .16em; color: #B8BBAF">ACCESS / A</span>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F4D500" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; letter-spacing: -.01em">Individual</h3>
+<p style="margin: 0; color: #B8BBAF">For students, learners, and imaging professionals.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Personal learning environment</li>
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Self-guided simulation exercises</li>
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Saved sessions and learning progress</li>
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Individual account and preferences</li>
+</ul>
+<a href="#individual" class="ns-btn" style="margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 10px; background: {{accent}}; color: #080A08; font-weight: 600; text-decoration: none">Continue as Individual →</a>
+</article>
+<article id="institution" class="ns-card" style="position: relative; overflow: hidden; background: linear-gradient(160deg, #1A1D15 0%, #141711 60%); border: 1px solid rgba(244,213,0,.3); border-radius: 18px; padding: 40px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .16em; color: #B8BBAF">ACCESS / B</span>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F4D500" stroke-width="1.4" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M9 11h.01M15 11h.01"></path></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; letter-spacing: -.01em">Institution</h3>
+<p style="margin: 0; color: #B8BBAF">For universities, hospitals, and training organizations.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Group-based learning</li>
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Instructor and student accounts</li>
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Shared teaching exercises</li>
+<li style="display: flex; gap: 12px; align-items: baseline"><span aria-hidden="true" style="width: 6px; height: 6px; background: #F4D500; flex: none; transform: translateY(-2px)"></span>Institutional administration</li>
+</ul>
+<a href="#contact" class="ns-btn" style="margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 10px; border: 1px solid #F4D500; color: #F4D500; font-weight: 600; text-decoration: none">Explore Institution Access →</a>
+</article>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="about" style="border-top: 1px solid rgba(184,187,175,.12); background: #0B0D0A">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: .18em; color: #F4D500">03 · HOW IT WORKS</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; letter-spacing: -.02em">From parameters to pixels in three steps.</h2>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 1px solid rgba(244,213,0,.35)">
+<li style="padding: 32px 32px 8px 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 40px; font-weight: 500; color: #F4D500; line-height: 1">01</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Select a module</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Pick acquisition, reconstruction, or image-quality to set the focus of your session.</p>
+</li>
+<li style="padding: 32px 32px 8px 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 40px; font-weight: 500; color: #F4D500; line-height: 1">02</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Configure parameters</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Set rotation, projection count, acquisition time and reconstruction options.</p>
+</li>
+<li style="padding: 32px 32px 8px 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 40px; font-weight: 500; color: #F4D500; line-height: 1">03</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Run and study</h3>
+<p style="margin: 0; color: #B8BBAF; font-size: 15px">Run the simulation and compare projections, slices and quality metrics.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" style="border-top: 1px solid rgba(184,187,175,.14)">
+<div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 40px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 360px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .08em">NUCLEAR<span style="color: #F4D500"> / </span>SIM</span>
+<p style="margin: 0; color: #B8BBAF; font-size: 14px">A virtual laboratory for nuclear medicine education and imaging physics.</p>
+<a href="mailto:[CONTACT EMAIL]" style="font-size: 14px">[CONTACT EMAIL]</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 14px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; color: #F4D500">PLATFORM</span>
+<a href="#simulator" class="ns-link">Simulator</a>
+<a href="#features" class="ns-link">Features</a>
+<a href="#docs" class="ns-link">Documentation</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; color: #F4D500">COMPANY</span>
+<a href="#about" class="ns-link">About</a>
+<a href="#contact" class="ns-link">Contact</a>
+<a href="#accessibility" class="ns-link">Accessibility</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; color: #F4D500">LEGAL</span>
+<a href="#privacy" class="ns-link">Privacy Policy</a>
+<a href="#terms" class="ns-link">Terms of Use</a>
+</div>
+</div>
+</div>
+<div style="border-top: 1px solid rgba(184,187,175,.12); padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 13px; color: #8E9286">
+<span>For educational and research use only. Not intended for clinical diagnosis.</span>
+<span>© 2026 [PROJECT NAME]</span>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#F4D500","options":["#F4D500","#FFC700","#E8FF3A"]},"glow":{"editor":"range","default":0.9,"min":0,"max":1,"step":0.05},"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#F4D500',
+      glow: this.props.glow ?? 0.9
+    };
+  }
+}
+</script>
+</body>
+</html>
